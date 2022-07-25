@@ -1,18 +1,18 @@
 const { expect } = require("chai")
 const dateCheck = require('../../utils/dateTime_check')
 
-describe('Just a test', () => {
+describe('Unix convert api test', () => {
     let check = dateCheck.default.unixCheck
     let endP = '/UnixTime/fromunixtimestamp'
     let param = ''
     let resp = ''
     
     it('Perform various successful checks', () => {
-        for (let i = 0; i < check.length; i+=2){
-            let param = `unixtimestamp=${check[i]}`
-            let resp = {Datetime:`${check[i+1]}`}
-            cy.testUnix(endP, param, resp, 200)
-    }
+      for (let i = 0; i < check.length; i+=2){
+        let param = `unixtimestamp=${check[i]}`
+        let resp = {Datetime:`${check[i+1]}`}
+        cy.testUnix(endP, param, resp, 200)
+      }
     })
 
     it('Verify an incorrect parameter value', () => {
